@@ -42,7 +42,6 @@ onMounted(() => {
 .ticker-container {
   position: fixed;
   z-index: -1;
-  overflow: hidden;
   display: flex;
   width: 150%;
   height: 150%;

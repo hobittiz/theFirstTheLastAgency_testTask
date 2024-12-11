@@ -13,7 +13,6 @@
         :style="{ 'animation-duration': tickerSpeed }"
       >
         {{ title }}
-        Repeat: {{ tickerRepeatCount }} Speed: {{ tickerSpeed }}
       </div>
     </div>
   </div>
@@ -81,8 +80,7 @@ watch(tickerSpeed, () => {
   align-items: center;
   width: 100%;
   color: #000;
-  /* opacity: 0.1; */
-  background: red;
+  opacity: 0.1;
 }
 
 .ticker__content {
