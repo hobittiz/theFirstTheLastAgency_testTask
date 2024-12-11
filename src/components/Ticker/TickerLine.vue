@@ -13,13 +13,14 @@
         :style="{ 'animation-duration': tickerSpeed }"
       >
         {{ title }}
+        Repeat: {{ tickerRepeatCount }} Speed: {{ tickerSpeed }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, nextTick, onMounted, ref, watch } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
   title: {
@@ -40,15 +41,13 @@ const tickerRepeatCount = ref(3);
 onMounted(() => {
   if (tickerGroup.value) {
     tickerGroupWidth.value = tickerGroup.value[0].offsetWidth;
-    const tickerGroupRepeatCount =
-      Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2;
-    tickerRepeatCount.value =
-      tickerGroupRepeatCount >= 3 ? tickerGroupRepeatCount : 3;
   }
 });
 
 const tickerSpeed = ref();
 watch(tickerGroupWidth, () => {
+  console.log(tickerGroupWidth);
+
   const msPer100px = 2050;
   const calculatedSpeed = (tickerGroupWidth.value / 100) * msPer100px;
   tickerSpeed.value = `${calculatedSpeed}ms`;
@@ -83,7 +82,7 @@ watch(tickerSpeed, () => {
   width: 100%;
   color: #000;
   /* opacity: 0.1; */
-  background: pink;
+  background: red;
 }
 
 .ticker__content {
