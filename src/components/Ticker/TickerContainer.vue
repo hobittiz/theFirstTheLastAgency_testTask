@@ -1,4 +1,6 @@
 <template>
+  {{ heightStatic }}
+  {{ heightDynamic }}
   <div class="ticker-container">
     <TickerLine
       class="ticker"
@@ -15,6 +17,9 @@
 <script setup>
 import TickerLine from "@/components/Ticker/TickerLine.vue";
 import { onMounted } from "vue";
+
+const heightStatic = ref(window.innerHeight);
+const heightDynamic = computed(() => window.innerHeight);
 
 onMounted(() => {
   const updateRotationAngle = () => {
@@ -48,7 +53,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transform: rotate(var(--rotation-angle));
+  /* transform: rotate(var(--rotation-angle)); */
 }
 
 @media screen and (max-width: 760px) {
