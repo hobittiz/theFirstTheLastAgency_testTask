@@ -42,13 +42,14 @@ onMounted(() => {
 .ticker-container {
   position: fixed;
   z-index: -1;
+  overflow: hidden;
   display: flex;
   width: 150%;
   height: 150%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* transform: rotate(var(--rotation-angle)); */
+  transform: rotate(var(--rotation-angle));
 }
 
 @media screen and (max-width: 760px) {

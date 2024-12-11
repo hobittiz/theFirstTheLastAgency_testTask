@@ -12,7 +12,7 @@
         }"
         :style="{ 'animation-duration': tickerSpeed }"
       >
-        {{ tickerGroupWidth }}{{ title }}
+        {{ title }}
       </div>
     </div>
   </div>
@@ -108,21 +108,21 @@ watch(tickerSpeed, () => {
 
 @keyframes ticker-opposite {
   0% {
-    transform: translateX(0%);
+    transform: translateX(-100%);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
 }
 
 @keyframes ticker {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(0%);
+    transform: translateX(-100%);
   }
 }
 
