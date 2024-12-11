@@ -21,7 +21,12 @@
         v-for="(item, index) in langOptions"
         :key="item"
         :style="`transition-delay: ${index * 100}ms !important`"
-        @click="currentLang = item"
+        @click="
+          () => {
+            currentLang = item;
+            dropdownisActive = !dropdownisActive;
+          }
+        "
       >
         <span class="link-swaping__inner">
           <span class="link-swaping__visible">{{ item }}</span>

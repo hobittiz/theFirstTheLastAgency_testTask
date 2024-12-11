@@ -27,21 +27,33 @@
       }"
     >
       <div class="navigation_container">
-        <RouterLink :to="linkPath" class="left-sided nav-link link-swaping">
+        <RouterLink
+          @click="showMobileNavigation = false"
+          :to="linkPath"
+          class="left-sided nav-link link-swaping"
+        >
           <span class="link-swaping__inner">
             <span class="link-swaping__visible">Where?</span>
             <span class="link-swaping__hidden">Where?</span>
           </span>
           <span class="border"></span>
         </RouterLink>
-        <RouterLink :to="linkPath" class="right-sided nav-link link-swaping">
+        <RouterLink
+          @click="showMobileNavigation = false"
+          :to="linkPath"
+          class="right-sided nav-link link-swaping"
+        >
           <span class="link-swaping__inner">
             <span class="link-swaping__visible">What?</span>
             <span class="link-swaping__hidden">What?</span>
           </span>
           <span class="border"></span>
         </RouterLink>
-        <RouterLink :to="linkPath" class="bottom-sided nav-link link-swaping">
+        <RouterLink
+          @click="showMobileNavigation = false"
+          :to="linkPath"
+          class="bottom-sided nav-link link-swaping"
+        >
           <span class="link-swaping__inner">
             <span class="link-swaping__visible">Who?</span>
             <span class="link-swaping__hidden">Who?</span>

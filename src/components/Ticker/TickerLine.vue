@@ -37,13 +37,13 @@ const tickerContainer = ref(null);
 const tickerGroupWidth = ref(0);
 
 const tickerRepeatCount = computed(() => {
-  if (!tickerGroup.value) return 2;
+  if (!tickerGroup.value) return 3;
 
   tickerGroupWidth.value = tickerGroup.value[0].offsetWidth;
   const tickerGroupRepeatCount =
     Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2 -
     1;
-  return tickerGroupRepeatCount > 2 ? tickerGroupRepeatCount : 2;
+  return tickerGroupRepeatCount >= 3 ? tickerGroupRepeatCount : 3;
 });
 
 const tickerSpeed = computed(() => {
