@@ -1,0 +1,43 @@
+@import "./reset.css";
+@import "./fonts.css";
+
+:root {
+  --color-grey: #bebebe;
+  --text-color: #373737;
+}
+
+.link-swaping__inner {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-swaping__visible {
+  position: relative;
+  transition: transform 0.3s;
+  line-height: 1;
+}
+
+.link-swaping__hidden {
+  position: absolute;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+  line-height: 1;
+}
+
+.link-swaping {
+  cursor: pointer;
+}
+
+@media screen and (hover: hover) {
+  .link-swaping:hover .link-swaping__hidden {
+    transform: translateY(0);
+  }
+
+  .link-swaping:hover .link-swaping__visible {
+    transform: translateY(-100%);
+  }
+}

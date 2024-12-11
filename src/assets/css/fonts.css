@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Grtsk Giga";
+  src: url(../fonts/grtskgiga-bold.woff2);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Grtsk Giga";
+  src: url(../fonts/grtskgiga-semibold.woff2);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Grtsk Giga";
+  src: url(../fonts/grtskgiga-golditalic.woff2);
+  font-style: italic;
+  font-weight: 700;
+}
