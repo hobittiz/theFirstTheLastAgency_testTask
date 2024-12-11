@@ -8,7 +8,7 @@
         ref="tickerGroup"
         :class="{
           'opposite-direction': direction === 'opposite',
-          '-animation': animation,
+          '-animation': allowAnimation,
         }"
         :style="{ 'animation-duration': tickerSpeed }"
       >
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
   title: {
@@ -36,22 +36,32 @@ const tickerGroup = ref(null);
 const tickerContainer = ref(null);
 const tickerGroupWidth = ref(0);
 
-const tickerRepeatCount = computed(() => {
-  if (!tickerGroup.value) return 3;
-
-  tickerGroupWidth.value = tickerGroup.value[0].offsetWidth;
-  const tickerGroupRepeatCount =
-    Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2;
-  return tickerGroupRepeatCount >= 3 ? tickerGroupRepeatCount : 3;
+const tickerRepeatCount = ref(3);
+onMounted(() => {
+  if (tickerGroup.value) {
+    tickerGroupWidth.value = tickerGroup.value[0].offsetWidth;
+    const tickerGroupRepeatCount =
+      Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2;
+    tickerRepeatCount.value =
+      tickerGroupRepeatCount >= 3 ? tickerGroupRepeatCount : 3;
+  }
 });
 
-const tickerSpeed = computed(() => {
+const tickerSpeed = ref();
+watch(tickerGroupWidth, () => {
   const msPer100px = 2050;
-  const tickerSpeed = (tickerGroupWidth.value / 100) * msPer100px;
-  return `${tickerSpeed}ms`;
+  const calculatedSpeed = (tickerGroupWidth.value / 100) * msPer100px;
+  tickerSpeed.value = `${calculatedSpeed}ms`;
 });
 
-const animation = computed(() => (tickerSpeed.value ? true : false));
+const allowAnimation = ref(false);
+watch(tickerSpeed, () => {
+  if (tickerSpeed.value) {
+    nextTick(() => {
+      allowAnimation.value = true;
+    });
+  }
+});
 </script>
 
 <style scoped>
@@ -72,8 +82,8 @@ const animation = computed(() => (tickerSpeed.value ? true : false));
   align-items: center;
   width: 100%;
   color: #000;
-  overflow: hidden;
-  opacity: 0.1;
+  /* opacity: 0.1; */
+  background: pink;
 }
 
 .ticker__content {
