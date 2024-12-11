@@ -12,7 +12,7 @@
         }"
         :style="{ 'animation-duration': tickerSpeed }"
       >
-        {{ title }}
+        {{ tickerGroupWidth }}{{ title }}
       </div>
     </div>
   </div>
