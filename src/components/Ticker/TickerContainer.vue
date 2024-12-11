@@ -54,8 +54,8 @@ onMounted(() => {
 
 @media screen and (max-width: 760px) {
   .ticker-container {
-    width: 150vh;
-    height: 150vh;
+    width: max(150svh, 150vw);
+    height: max(150svh, 150vw);
   }
 }
 </style>

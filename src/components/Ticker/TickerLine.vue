@@ -41,8 +41,7 @@ const tickerRepeatCount = computed(() => {
 
   tickerGroupWidth.value = tickerGroup.value[0].offsetWidth;
   const tickerGroupRepeatCount =
-    Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2 -
-    1;
+    Math.ceil(tickerContainer.value.offsetWidth / tickerGroupWidth.value) * 2;
   return tickerGroupRepeatCount >= 3 ? tickerGroupRepeatCount : 3;
 });
 
