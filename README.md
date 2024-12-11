@@ -1,4 +1,4 @@
-# Tsyrul Volodymyr - THe First The Last agency test task
+# Tsyrul Volodymyr - The First The Last agency test task
 
 To run the projec, follow this instructions:
 
