@@ -1,6 +1,6 @@
 <template>
   {{ heightStatic }}
-  {{ heightDynamic }}
+  {{ height }}
   <div class="ticker-container">
     <TickerLine
       class="ticker"
@@ -16,10 +16,11 @@
 
 <script setup>
 import TickerLine from "@/components/Ticker/TickerLine.vue";
-import { onMounted } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { computed, onMounted, ref } from "vue";
 
 const heightStatic = ref(window.innerHeight);
-const heightDynamic = computed(() => window.innerHeight);
+const { height } = useWindowSize();
 
 onMounted(() => {
   const updateRotationAngle = () => {
